@@ -19,16 +19,28 @@ public class ThrongHelp implements Runnable {
     boolean list;
 
 
+    @CommandLine.Option(names = {"-u", "--usecase"}, description = "...")
+    String command;
+
     @Override
     public void run() {
 
         if(list) {
 
             screen.displayOutput("room");
+            screen.displayOutput("baseball");
 
 
-        } else {
-            PicocliRunner.run(throngCommandFactory.getUseCase("room"), new String[]{"-h"});
+        } else if(command != null){
+            switch(command) {
+                case "room":
+                    PicocliRunner.run(throngCommandFactory.getUseCase("room"), new String[]{"-h"});
+                    break;
+                case "baseball":
+                    PicocliRunner.run(throngCommandFactory.getUseCase("baseball"), new String[]{"-h"});
+                    break;
+            }
+
         }
 
 

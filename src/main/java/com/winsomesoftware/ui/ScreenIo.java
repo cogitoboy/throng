@@ -1,5 +1,6 @@
 package com.winsomesoftware.ui;
 
+import com.winsomesoftware.lafore.arrays.structures.Low;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 
@@ -38,7 +39,8 @@ public class ScreenIo {
 
         String input = getInput(context, question);
 
-        while((!"Y".equalsIgnoreCase(input) &&  !"N".equalsIgnoreCase(input))){
+        while((!"Y".equalsIgnoreCase(input)
+                &&  !"N".equalsIgnoreCase(input))){
             input = getInput(context, question);
         }
 
@@ -63,7 +65,16 @@ public class ScreenIo {
     }
 
 
-    public void displayOutput(Object content) {
+    public void displayOutput(Low lowArray) {
+        System.out.println("   -- Low Array --");
+        System.out.println("   --------------");
+        for(int i = 0; i < 20; i++) {
+
+            System.out.println("   | i: "+ i + " | " + lowArray.getElem(i) );
+        }
+        System.out.println("   --------------");
+    }
+    public void displayOutput(String content) {
         String displayString = content.toString();
 
 

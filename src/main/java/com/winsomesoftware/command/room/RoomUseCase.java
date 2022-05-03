@@ -22,7 +22,7 @@ public class RoomUseCase extends ThrongUseCase {
     @Override
     public void execute() {
 
-        screen.displayOutput(getRoomNumber(screen.getInteger("room","Enter Room Number for "+ building+" : ")));
+        screen.displayOutput(getRoomNumber(screen.getInteger("room","Enter Room Number for "+ building+" : ")).toString());
 
     }
 
